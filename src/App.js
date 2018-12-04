@@ -106,6 +106,7 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>Favorite Movies</h2>
+		<FavoriteMovies />
       </div>
     );
   }
@@ -115,13 +116,13 @@ class FavoriteMovies extends Component {
   render() {
   	return (
       <ol className='favorite-movies'>
-      	profiles.map((profile) => {
+      {profiles.map((profile) => {
       		let user = users[profile.userID];
       		let favoriteMovie = movies[profile.favoriteMovieID];
       		return (
-              <FavoriteMovie userFullName={user.name} movieName={favoriteMovie.name} />
+              <FavoriteMovie key={profile.id} userFullName={user.name} movieName={favoriteMovie.name} />
             )
-    	});
+    	})}
       </ol>
     )
   }
